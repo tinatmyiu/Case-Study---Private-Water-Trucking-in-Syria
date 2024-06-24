@@ -3,7 +3,7 @@
 ## Objective
 By using the dataset from the questionnaire of water trucking in Syria from REACH, this case study is to examine the cost and effectiveness of private water trucking in Northwest Syria (NWS).
 
-Data wrangling, data analysis and data visualization were performed, using R, in order to know the cost per quantity of water of private water trucking activities. This case study will be focus on the fuel cost for delivery of water.
+Data cleaning, data wrangling, data analysis and data visualization were performed, using R, in order to know the cost per quantity of water of private water trucking activities. This case study will be focus on the fuel cost for delivery of water.
 
 ## Data cleaning
 1. Remove duplicate data
@@ -55,3 +55,29 @@ view(fuel_unit)
 
 truck_volume_unit <- main_data %>% group_by(truck_volume_unit) %>% count(truck_volume_unit)
 view(truck_volume_unit)
+```
+
+
+## Data wrangling
+We will create 2 tables for examination of the fuel cost for delivering waterin water trucking activies
+
+The first table will contain ki_type
+
+
+```r
+#Data wrangling
+
+#use filter to obtain data related to private water trucking
+#calculate fuel cost per Lite of water
+fuel_water_cost <- filter(main_data, ki_type == 'private_trucker' | ki_type == 'private_owner') %>%
+  select(fuel_delivery, fuel_cost_litre, delivery_volume, delivery_distance) %>%
+  mutate(fuel_delivery_per_trip_TRY = fuel_delivery*fuel_cost_litre*158.987294928) %>%
+  mutate(fuel_delivery_costTRY_per_waterLitre = fuel_delivery_per_trip_TRY/delivery_volume) %>%
+  na.omit(fuel_water_cost)
+```
+
+  
+```r
+#summary of the mean, minimum and maximum of the fuel cost for delivery per litre water 
+fuel_water_cost_summary <- data.frame(mean(fuel_water_cost$fuel_delivery_costTRY_per_waterLitre), min(fuel_water_cost$fuel_delivery_costTRY_per_waterLitre), max(fuel_water_cost$fuel_delivery_costTRY_per_waterLitre))
+```
