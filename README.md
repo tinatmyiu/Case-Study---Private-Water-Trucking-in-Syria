@@ -123,7 +123,7 @@ fuel_water_cost_all <- select(main_data, ki_type, fuel_delivery, fuel_cost_litre
 
 #Data visualization for all ki_type
 ggplot(fuel_water_cost_all, aes(x=delivery_distance, y=fuel_delivery_costTRY_per_waterLitre, color= ki_type)) + 
-  geom_point(aes(size=ki_type)) +
+  geom_point(size=4) +
   labs(title="Fuel cost for delivery of water according to delivery distance with all types of KI",
        x="Delivery distance (km)", y = "Fuel cost (TRY/Litre)")
 ```
