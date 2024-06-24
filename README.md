@@ -97,7 +97,7 @@ fuel_water_cost_summary <- data.frame(mean(fuel_water_cost$fuel_delivery_costTRY
 
 ## Data visualization
 
-A scatter plot is created to see the correction of the fuel cost of water delivery and delivery distance. 
+A scatter plot 'Fuel cost for delivery of water according to delivery distance' is created to see the correction of the fuel cost of water delivery and delivery distance. 
 
 ![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/Fuel%20cost%20for%20delivery%20of%20water%20according%20to%20delivery%20distance.png)
 
@@ -110,6 +110,23 @@ ggplot(fuel_water_cost, aes(x=delivery_distance, y=fuel_delivery_costTRY_per_wat
        x="Delivery distance (km)", y = "Fuel cost (TRY/Litre)")
 ```
 
+Another scatter plot 'Fuel cost for delivery of water according to delivery distance with all types of KI' is to see the correction of the fuel cost of water delivery and delivery distance for all types of KI
+
+![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/Fuel%20cost%20for%20delivery%20of%20water%20according%20to%20delivery%20distance%20with%20all%20types%20of%20KI.png)
+
+```r
+#Data wrangling for all ki_type
+fuel_water_cost_all <- select(main_data, ki_type, fuel_delivery, fuel_cost_litre, delivery_volume, delivery_distance) %>%
+  mutate(fuel_delivery_per_trip_TRY = fuel_delivery*fuel_cost_litre*158.987294928) %>%
+  mutate(fuel_delivery_costTRY_per_waterLitre = fuel_delivery_per_trip_TRY/delivery_volume) %>%
+  na.omit(fuel_water_cost)
+
+#Data visualization for all ki_type
+ggplot(fuel_water_cost_all, aes(x=delivery_distance, y=fuel_delivery_costTRY_per_waterLitre, color= ki_type)) + 
+  geom_point(aes(size=ki_type)) +
+  labs(title="Fuel cost for delivery of water according to delivery distance with all types of KI",
+       x="Delivery distance (km)", y = "Fuel cost (TRY/Litre)")
+```
 
 ## Conclusion
-The mean fuel cost per litre of water is TRY 311.196 in water trucking activities in NWS. The fuel cost shows a positive correlation with delivery distance.
+The mean fuel cost per litre of water is TRY 311.196 in water trucking activities in NWS. The fuel cost shows a positive correlation with delivery distance. Th fuel cost increases with longer delivery distance. 
