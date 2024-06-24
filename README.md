@@ -3,7 +3,7 @@
 ## Objective
 By using the dataset from the questionnaire of water trucking in Syria from REACH (https://repository.impact-initiatives.org/document/impact/f68bd982/REACH_SYR_Dataset_Water-Trucking_Mar24.xlsx), this case study is to examine the cost and effectiveness of private water trucking in Northwest Syria (NWS).
 
-Data cleaning, data wrangling, data analysis and data visualization were performed, using R, in order to know the cost per quantity of private trucking activities. This case study will be focusing on the fuel cost for delivery of water.
+Data cleaning, data wrangling, data analysis and data visualization will be performed, using R, in order to know the cost per quantity of private trucking activities. This case study will be focusing on the fuel cost for delivery of water.
 
 ## Data cleaning
 1. Remove duplicate data
@@ -16,11 +16,11 @@ Using str_rm_whitespace_df() in R.
 
 3. Remove data cells with NA in currency and fuel_unit columns
 
-Without currency and fuel unit, the cost was not measurable and comparable with the others so the data with currency and fuel unit of NA was removed.
+Without currency and fuel unit, the cost is not measurable and comparable with each other so the data with currency and fuel unit of NA will be removed.
 
 4. Check if the units for currency, fuel_unit and delivery distance are the same for all uuid.
 
-If they have different units within the same variable, a conversion of unit should be applied to unify the units. The results shown that the units are unified.
+If they have different units within the same variable, a conversion of unit should be applied to unify the units. The results show that the units are unified.
 
 ![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/currency.PNG)
 ![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/fuel_unit.PNG)
@@ -47,7 +47,7 @@ setwd("C:/Users/danny/Desktop/Tina/Syria")
 main_data <- read_excel("REACH_SYR_Dataset_Water-Trucking_Mar24.xlsx", "Main Data")
 
 #Data cleaning
-#remove duplicate and extra spaces in a data point
+#remove duplicates and extra spaces in a data point
 main_data <- distinct(main_data)
 main_data <- str_rm_whitespace_df(main_data)
 
