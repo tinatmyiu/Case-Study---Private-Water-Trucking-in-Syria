@@ -16,7 +16,12 @@ Using str_rm_whitespace_df() in R.
 Without currency and fuel unit, the cost was not measurable and comparable with the others so the data with currency and fuel unit of NA was removed.
 
 4. Check if the units for currency, fuel_unit and delivery distance are the same for all uuid.
-If they have different units within the same variable, a conversion of unit should be applied to unify the units.
+If they have different units within the same variable, a conversion of unit should be applied to unify the units. The results shown that the units are unified.
+
+![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/currency.PNG)
+![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/fuel_unit.PNG)
+![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/truck_volume_unit.PNG)
+
 
 ```r
 # install.packages
@@ -58,6 +63,7 @@ view(truck_volume_unit)
 ```
 
 
+
 ## Data wrangling
 We will create 2 tables for examination of the fuel cost for delivering waterin water trucking activies
 
@@ -65,7 +71,6 @@ The 1st table 'fuel_water_cost' will contain ki_type of 'private_trucker' or 'pr
 A new column 'fuel_delivery_per_trip_TRY' is added add a result of fuel cost per trip (TRY).
 An other new collumn 'fuel_delivery_costTRY_per_waterLitre' presents the fuel cost per liter of water (TRY/Litre).
 Table 'fuel_water_cost' was cleaned agiin with na.omit() to remove NA value.
-
 
 ```r
 #Data wrangling
@@ -78,12 +83,28 @@ fuel_water_cost <- filter(main_data, ki_type == 'private_trucker' | ki_type == '
   mutate(fuel_delivery_costTRY_per_waterLitre = fuel_delivery_per_trip_TRY/delivery_volume) %>%
   na.omit(fuel_water_cost)
 ```
-![paste to excel](https://77a5c0a3f9174366ab970d0e4c2e2c0b.app.posit.cloud/file_show?path=%2Fcloud%2Fproject%2FRplot.png)
 
 
-The 2nd table 'fuel_water_cost_summary' is a summary of table 1 
+
+The 2nd table 'fuel_water_cost_summary' is a summary of table 'fuel_water_cost', showing the mean, max and min of the fuel cost per a litre of water.
+![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/fuel_water_cost_summary.PNG)
   
 ```r
 #summary of the mean, minimum and maximum of the fuel cost for delivery per litre water 
 fuel_water_cost_summary <- data.frame(mean(fuel_water_cost$fuel_delivery_costTRY_per_waterLitre), min(fuel_water_cost$fuel_delivery_costTRY_per_waterLitre), max(fuel_water_cost$fuel_delivery_costTRY_per_waterLitre))
 ```
+
+## Data visualization
+
+A scatter plot is created to see the correction of the fuel cost of water delivery and delivery distance. 
+
+![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/Fuel%20cost%20for%20delivery%20of%20water%20according%20to%20delivery%20distance.png)
+
+'''r
+#Data visualization
+ggplot(fuel_water_cost, aes(x=delivery_distance, y=fuel_delivery_costTRY_per_waterLitre)) + 
+  geom_point() +
+  geom_smooth(method=lm) +
+  labs(title="Fuel cost for delivery of water according to delivery distance",
+       x="Delivery distance (km)", y = "Fuel cost (TRY/Litre)")
+'''
