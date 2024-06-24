@@ -3,7 +3,7 @@
 ## Objective
 By using the dataset from the questionnaire of water trucking in Syria from REACH, this case study is to examine the cost and effectiveness of private water trucking in Northwest Syria (NWS).
 
-Data cleaning, data wrangling, data analysis and data visualization were performed, using R, in order to know the cost per quantity of water of private water trucking activities. This case study will be focus on the fuel cost for delivery of water.
+Data cleaning, data wrangling, data analysis and data visualization were performed, using R, in order to know the cost per quantity of water of private water trucking activities. This case study will be focusing on the fuel cost for delivery of water.
 
 ## Data cleaning
 1. Remove duplicate data
@@ -87,6 +87,7 @@ fuel_water_cost <- filter(main_data, ki_type == 'private_trucker' | ki_type == '
 
 
 The 2nd table 'fuel_water_cost_summary' is a summary of table 'fuel_water_cost', showing the mean, max and min of the fuel cost per a litre of water.
+
 ![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/fuel_water_cost_summary.PNG)
   
 ```r
@@ -100,11 +101,15 @@ A scatter plot is created to see the correction of the fuel cost of water delive
 
 ![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/Fuel%20cost%20for%20delivery%20of%20water%20according%20to%20delivery%20distance.png)
 
-'''r
+```r
 #Data visualization
 ggplot(fuel_water_cost, aes(x=delivery_distance, y=fuel_delivery_costTRY_per_waterLitre)) + 
   geom_point() +
   geom_smooth(method=lm) +
   labs(title="Fuel cost for delivery of water according to delivery distance",
        x="Delivery distance (km)", y = "Fuel cost (TRY/Litre)")
-'''
+```
+
+
+## Conclusion
+The mean fuel cost per litre of water is TRY 311.196 in water trucking activities in NWS. The fuel cost shows a positive correlation with delivery distance.
