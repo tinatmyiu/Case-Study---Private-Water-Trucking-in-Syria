@@ -61,7 +61,10 @@ view(truck_volume_unit)
 ## Data wrangling
 We will create 2 tables for examination of the fuel cost for delivering waterin water trucking activies
 
-The first table will contain ki_type
+The 1st table 'fuel_water_cost' will contain ki_type of 'private_trucker' or 'private_owner'. 4 variables needed for calculation of fuel cost (TRY) per a litre of water are extracted from the cleaned data.
+A new column 'fuel_delivery_per_trip_TRY' is added add a result of fuel cost per trip (TRY).
+An other new collumn 'fuel_delivery_costTRY_per_waterLitre' presents the fuel cost per liter of water (TRY/Litre).
+Table 'fuel_water_cost' was cleaned agiin with na.omit() to remove NA value.
 
 
 ```r
@@ -75,7 +78,10 @@ fuel_water_cost <- filter(main_data, ki_type == 'private_trucker' | ki_type == '
   mutate(fuel_delivery_costTRY_per_waterLitre = fuel_delivery_per_trip_TRY/delivery_volume) %>%
   na.omit(fuel_water_cost)
 ```
+![paste to excel](https://77a5c0a3f9174366ab970d0e4c2e2c0b.app.posit.cloud/file_show?path=%2Fcloud%2Fproject%2FRplot.png)
 
+
+The 2nd table 'fuel_water_cost_summary' is a summary of table 1 
   
 ```r
 #summary of the mean, minimum and maximum of the fuel cost for delivery per litre water 
