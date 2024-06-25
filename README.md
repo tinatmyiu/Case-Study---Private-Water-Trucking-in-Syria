@@ -141,7 +141,7 @@ fuel_water_cost %>%
 
 Another scatter plot 'Fuel cost for delivery of water according to delivery distance with all types of KI is to see the correction of the fuel cost of water delivery and delivery distance for all types of KI.
 
-![paste to excel](https://github.com/tinatmyiu/casestudy/blob/5de2e211dd8aaac3ec7e72be0d30f939a1b09996/Fuel%20cost%20for%20delivery%20of%20water%20according%20to%20delivery%20distance%20with%20all%20types%20of%20KI.png)
+![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/Fuel%20cost%20for%20delivery%20of%20water%20according%20to%20delivery%20distance%20with%20all%20types%20of%20KI.png)
 
 ```r
 #Data wrangling for all ki_type
