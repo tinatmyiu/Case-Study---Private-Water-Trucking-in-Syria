@@ -129,7 +129,7 @@ ggplot(fuel_water_cost, aes(x=delivery_distance, y=fuel_delivery_costTRY_per_wat
        x="Delivery distance (km)", y = "Fuel cost (TRY/Litre)")
 ```
 
-Another scatter plot 'Fuel cost for delivery of water according to delivery distance with all types of KI' is to see the correction of the fuel cost of water delivery and delivery distance for all types of KI
+Another scatter plot 'Fuel cost for delivery of water according to delivery distance with all types of KI' is to see the correction of the fuel cost of water delivery and delivery distance for all types of KI.
 
 ![paste to excel](https://github.com/tinatmyiu/casestudy/blob/5de2e211dd8aaac3ec7e72be0d30f939a1b09996/Fuel%20cost%20for%20delivery%20of%20water%20according%20to%20delivery%20distance%20with%20all%20types%20of%20KI.png)
 
@@ -148,6 +148,6 @@ ggplot(fuel_water_cost_all, aes(x=delivery_distance, y=fuel_delivery_costTRY_per
 ```
 
 ## Conclusion and recommendations
-The mean fuel cost per litre of water is TRY 311.196 (USD 9.45, exchange rate 1:0.03) in water trucking activities in NWS. The fuel cost shows a positive correlation with delivery distance. Th fuel cost increases with longer delivery distance. The fuel cost of private water trucking activities does not show significant differecnce with other water trucking activies. 
+The mean fuel cost per litre of water is TRY 311.196 (USD 9.45, exchange rate 1:0.03) for delivery of private water trucking activities in NWS. The fuel cost shows a positive correlation with delivery distance. Th fuel cost increases with longer delivery distance. The fuel cost of private water trucking activities does not show significant differecnce with other water trucking activies. 
 
 A more comprehensive evauation can be made if other costs, such as car fees and registration fees, are also included in data analysis. However, more questions will be needed. For example, how much water was delivered per month? To have a fair comparison, it is important to align different variables to the same length of time.
