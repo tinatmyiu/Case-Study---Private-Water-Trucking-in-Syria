@@ -30,7 +30,8 @@ If they have different units within the same variable, a conversion of unit shou
 
 Add a column 'cal_fuel_cost_litre' for calculation of fuel_cost_litre. Add another column 'cal_verify' to return TRUE if the result of cal_fuel_cost_litre and fuel_cost_litre match.
 
-An summary table 'cal_verify_false' shows which row has unmatched values of cal_fuel_cost_litre and fuel_cost_litre.
+An summary of 'check_cal_fuel_cost_litre' shows which row has unmatched values of cal_fuel_cost_litre and fuel_cost_litre. The calcuation of fuel_cost_litre is verified t as accurate.
+![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/check_cal_fuel_cost_litre.png)
 
 ```r
 # install.packages
@@ -69,7 +70,7 @@ view(fuel_unit)
 
 truck_volume_unit <- main_data %>% group_by(truck_volume_unit) %>% count(truck_volume_unit)
 view(truck_volume_unit)
-```
+
 #Check if the calculation of fuel_cost_litre
 check_cal_fuel_cost_litre <- private_data %>% mutate(cal_fuel_cost_litre = round(cost_fuel_delivery1
 /fuel_delivery)) %>%
@@ -79,7 +80,7 @@ check_cal_fuel_cost_litre <- private_data %>% mutate(cal_fuel_cost_litre = round
 
 view(check_cal_fuel_cost_litre)
 summarise(check_cal_fuel_cost_litre)
-
+```
 
 ## Data wrangling
 We will create 2 tables for examination of the fuel cost for delivering waterin water trucking activies
