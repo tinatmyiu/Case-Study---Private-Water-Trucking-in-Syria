@@ -84,10 +84,10 @@ summarise(check_cal_fuel_cost_litre)
 ```
 
 ## Data wrangling
-We will create 2 tables for examination of the fuel cost for delivering water in private water trucking activies
+We will create 2 tables for examining the fuel cost of delivering water in private water trucking activies.
 
 The 1st table 'fuel_water_cost' will contain ki_type of 'private_trucker' or 'private_owner'. 4 variables needed for calculation of fuel cost (TRY) per a litre of water are extracted from the cleaned data.
-A new column 'fuel_delivery_per_trip_TRY' is added add a result of fuel cost per trip (TRY).
+A new column 'fuel_delivery_per_trip_TRY' is added as a result of fuel cost per trip (TRY).
 An other new collumn 'fuel_delivery_costTRY_per_waterLitre' presents the fuel cost per liter of water (TRY/Litre).
 Table 'fuel_water_cost' was cleaned agiin with na.omit() to remove NA value.
 
@@ -105,13 +105,13 @@ fuel_water_cost <- filter(main_data, ki_type == 'private_trucker' | ki_type == '
 
 
 
-The 2nd table 'fuel_water_cost_summary' is a summary of table 'fuel_water_cost', showing the mean, max and min of the fuel cost per a litre of water.
+The 2nd table 'fuel_water_cost_summary' is a summary of table 'fuel_water_cost', showing the mean, max and min of the fuel cost per litre of water.
 
 ![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/fuel_water_cost_summary.PNG)
   
 ```r
 #summary of the mean, minimum and maximum of the fuel cost for delivery per litre water 
-fuel_water_cost_summary <- data.frame(mean(fuel_water_cost$fuel_delivery_costTRY_per_waterLitre), min(fuel_water_cost$fuel_delivery_costTRY_per_waterLitre), max(fuel_water_cost$fuel_delivery_costTRY_per_waterLitre))
+fuel_water_cost_summary <- data.frame(Mean.of.fuel.cost.per.litre.water = mean(fuel_water_cost$fuel_delivery_costTRY_per_waterLitre), Min.of.fuel.cost.per.litre.water = min(fuel_water_cost$fuel_delivery_costTRY_per_waterLitre), Max.of.fuel.cost.per.litre.water = max(fuel_water_cost$fuel_delivery_costTRY_per_waterLitre)) 
 ```
 
 ## Data visualization
