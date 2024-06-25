@@ -70,7 +70,15 @@ view(fuel_unit)
 truck_volume_unit <- main_data %>% group_by(truck_volume_unit) %>% count(truck_volume_unit)
 view(truck_volume_unit)
 ```
+#Check if the calculation of fuel_cost_litre
+check_cal_fuel_cost_litre <- private_data %>% mutate(cal_fuel_cost_litre = round(cost_fuel_delivery1
+/fuel_delivery)) %>%
+  mutate(cal_verify = print (cal_fuel_cost_litre == cal_fuel_cost_litre)) %>% 
+  group_by(cal_verify) %>%
+  select(uuid, cal_verify)
 
+view(check_cal_fuel_cost_litre)
+summarise(check_cal_fuel_cost_litre)
 
 
 ## Data wrangling
