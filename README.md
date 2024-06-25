@@ -3,7 +3,7 @@
 ## Objective
 By using the dataset of water trucking in Syria from REACH (https://repository.impact-initiatives.org/document/impact/f68bd982/REACH_SYR_Dataset_Water-Trucking_Mar24.xlsx), this case study is to examine the cost and effectiveness of private water trucking in Northwest Syria (NWS).
 
-Data cleaning, data wrangling, data analysis and data visualization will be performed, using R, in order to know the cost per quantity of private trucking activities. This case study will be focusing on the fuel cost for delivery of water.
+Data cleaning, data wrangling, data analysis and data visualization will be performed, using R, in order to know the cost per quantity of water in private water trucking activities. This case study will be focusing on the fuel cost for delivery of water.
 
 ## Data cleaning
 1. Remove duplicate data
