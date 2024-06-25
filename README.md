@@ -84,12 +84,12 @@ summarise(check_cal_fuel_cost_litre)
 ```
 
 ## Data wrangling
-We will create 2 tables for examining the fuel cost of delivering water in private water trucking activies.
+We will create 2 tables for examining the fuel cost of delivering water in private water trucking activities.
 
 The 1st table 'fuel_water_cost' will contain ki_type of 'private_trucker' or 'private_owner'. 4 variables needed for calculation of fuel cost (TRY) per a litre of water are extracted from the cleaned data.
 A new column 'delivery_volume_litre' is added to convert barrel unit to litre unit.
-An other new collumn 'fuel_delivery_costTRY_per_waterLitre' presents the fuel cost per liter of water (TRY/Litre).
-Table 'fuel_water_cost' was cleaned agiin with na.omit() to remove NA value.
+Another new collumn 'fuel_delivery_costTRY_per_waterLitre' presents the fuel cost per liter of water (TRY/Litre).
+Table 'fuel_water_cost' was cleaned again with na.omit() to remove NA value.
 
 ```r
 #Data wrangling
@@ -158,6 +158,6 @@ ggplot(fuel_water_cost_all, aes(x=delivery_distance, y=fuel_delivery_costTRY_per
 ```
 
 ## Conclusion and recommendations
-The mean fuel cost per litre of water is TRY 0.007010478/Litre for delivery of private water trucking activities in NWS. As the p-vaule of 'delivery_distance' and 'fuel_delivery_costTRY_per_waterLitre' is 0.6764, which is bigger than 0.05. Correlation coefficient is -0.04707941, which is close to 0. They show no certainty in results and no correlation. The fuel cost for delivering water is independent of delivery distance. The fuel cost of private water trucking activities does not show significant differecnce with other water trucking activies. 
+The mean fuel cost per litre of water is TRY 0.007010478/Litre for delivery of private water trucking activities in NWS. As the p-vaule of 'delivery_distance' and 'fuel_delivery_costTRY_per_waterLitre' is 0.6764, which is bigger than 0.05. Correlation coefficient is -0.04707941, which is close to 0. They show no certainty in results and no correlation. The fuel cost for delivering water is independent of delivery distance. The fuel cost of private water trucking activities does not show significant differecnce with other water trucking activities. 
 
-A more comprehensive evauation can be made if other costs, such as car fees and registration fees, are also included in data analysis. However, more questions will be needed. For example, how much water was delivered per month? To have a fair comparison, it is needed to align different variables to the same length of time.
+A more comprehensive evaluation can be made if other costs, such as car fees and registration fees, are also included in data analysis. However, more questions will be needed. For example, how much water was delivered per month? To have a fair comparison, it is needed to align different variables to the same length of time.
