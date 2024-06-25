@@ -87,7 +87,7 @@ summarise(check_cal_fuel_cost_litre)
 We will create 2 tables for examining the fuel cost of delivering water in private water trucking activies.
 
 The 1st table 'fuel_water_cost' will contain ki_type of 'private_trucker' or 'private_owner'. 4 variables needed for calculation of fuel cost (TRY) per a litre of water are extracted from the cleaned data.
-A new column 'fuel_delivery_per_trip_TRY' is added as a result of fuel cost per trip (TRY).
+A new column 'delivery_volume_litre' is added to convert barrel unit to litre unit.
 An other new collumn 'fuel_delivery_costTRY_per_waterLitre' presents the fuel cost per liter of water (TRY/Litre).
 Table 'fuel_water_cost' was cleaned agiin with na.omit() to remove NA value.
 
@@ -97,13 +97,11 @@ Table 'fuel_water_cost' was cleaned agiin with na.omit() to remove NA value.
 #use filter to obtain data related to private water trucking
 #calculate fuel cost per Lite of water
 fuel_water_cost <- filter(main_data, ki_type == 'private_trucker' | ki_type == 'private_owner') %>%
-  select(fuel_delivery, fuel_cost_litre, delivery_volume, delivery_distance) %>%
-  mutate(fuel_delivery_per_trip_TRY = fuel_delivery*fuel_cost_litre*158.987294928) %>%
-  mutate(fuel_delivery_costTRY_per_waterLitre = fuel_delivery_per_trip_TRY/delivery_volume) %>%
-  na.omit(fuel_water_cost)
+  select(cost_fuel_delivery1, delivery_volume, delivery_distance) %>%
+  mutate(delivery_volume_litre = delivery_volume*158.987294928) %>%
+  mutate(fuel_delivery_costTRY_per_waterLitre = cost_fuel_delivery1/delivery_volume_litre) %>%
+  na.omit(fuel_delivery_costTRY_per_waterLitre)
 ```
-
-
 
 The 2nd table 'fuel_water_cost_summary' is a summary of table 'fuel_water_cost', showing the mean, max and min of the fuel cost per litre of water.
 
@@ -132,6 +130,12 @@ ggplot(fuel_water_cost, aes(x=delivery_distance, y=fuel_delivery_costTRY_per_wat
 A Pearson correlation test is performed to obtain the p-value. p-value = 0.6764.
 
 ![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/pearson%20correation.PNG)
+
+```r
+#Pearson correlation
+fuel_water_cost %>%
+  cor.test( ~delivery_distance + fuel_delivery_costTRY_per_waterLitre, data =.)
+```
 
 
 Another scatter plot 'Fuel cost for delivery of water according to delivery distance with all types of KI' is to see the correction of the fuel cost of water delivery and delivery distance for all types of KI.
