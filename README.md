@@ -124,10 +124,11 @@ ggplot(fuel_water_cost, aes(x=delivery_distance, y=fuel_delivery_costTRY_per_wat
   geom_point() +
   geom_smooth(method=lm) +
   labs(title="Fuel cost for delivery of water according to delivery distance",
-       x="Delivery distance (km)", y = "Fuel cost (TRY/Litre)")
+       x="Delivery distance (km)", y = "Fuel cost per water (TRY/Litre)")
+
 ```
 
-A Pearson correlation test is performed to obtain the p-value. p-value = 0.6764.
+A Pearson correlation test is performed to obtain the p-value. p-value = 0.6764. Correlation coefficient = -0.04707941
 
 ![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/pearson%20correation.PNG)
 
@@ -144,19 +145,19 @@ Another scatter plot 'Fuel cost for delivery of water according to delivery dist
 
 ```r
 #Data wrangling for all ki_type
-fuel_water_cost_all <- select(main_data, ki_type, fuel_delivery, fuel_cost_litre, delivery_volume, delivery_distance) %>%
-  mutate(fuel_delivery_per_trip_TRY = fuel_delivery*fuel_cost_litre*158.987294928) %>%
-  mutate(fuel_delivery_costTRY_per_waterLitre = fuel_delivery_per_trip_TRY/delivery_volume) %>%
-  na.omit(fuel_water_cost)
+fuel_water_cost_all <- select(main_data, ki_type, cost_fuel_delivery1, delivery_volume, delivery_distance) %>%
+  mutate(delivery_volume_litre = delivery_volume*158.987294928) %>%
+  mutate(fuel_delivery_costTRY_per_waterLitre = cost_fuel_delivery1/delivery_volume_litre) %>%
+  na.omit(fuel_delivery_costTRY_per_waterLitre)
 
 #Data visualization for all ki_type
 ggplot(fuel_water_cost_all, aes(x=delivery_distance, y=fuel_delivery_costTRY_per_waterLitre, color= ki_type)) + 
   geom_point(size=4) +
   labs(title="Fuel cost for delivery of water according to delivery distance with all types of KI",
-       x="Delivery distance (km)", y = "Fuel cost (TRY/Litre)")
+       x="Delivery distance (km)", y = "Fuel cost per water (TRY/Litre)")
 ```
 
 ## Conclusion and recommendations
-The mean fuel cost per litre of water is TRY 311.196 (USD 9.45, exchange rate 1:0.03) for delivery of private water trucking activities in NWS. The fuel cost shows a positive correlation with delivery distance. Th fuel cost increases with longer delivery distance. The fuel cost of private water trucking activities does not show significant differecnce with other water trucking activies. 
+The mean fuel cost per litre of water is TRY 0.007010478/Litre for delivery of private water trucking activities in NWS. As the p-vaule of 'delivery_distance' and 'fuel_delivery_costTRY_per_waterLitre' is 0.6764, which is bigger than 0.05. Correlation coefficient is -0.04707941, which is close to 0. They show no certainty in results and no correlation. The fuel cost for delivering water is independent of delivery distance. The fuel cost of private water trucking activities does not show significant differecnce with other water trucking activies. 
 
-A more comprehensive evauation can be made if other costs, such as car fees and registration fees, are also included in data analysis. However, more questions will be needed. For example, how much water was delivered per month? To have a fair comparison, it is important to align different variables to the same length of time.
+A more comprehensive evauation can be made if other costs, such as car fees and registration fees, are also included in data analysis. However, more questions will be needed. For example, how much water was delivered per month? To have a fair comparison, it is needed to align different variables to the same length of time.
