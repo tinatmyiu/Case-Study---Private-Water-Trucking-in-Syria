@@ -88,7 +88,7 @@ We will create 2 tables for examining the fuel cost of delivering water in priva
 
 The 1st table 'fuel_water_cost' will contain ki_type of 'private_trucker' or 'private_owner'. 3 variables needed for calculation of fuel cost (TRY) per a litre of water are extracted from the cleaned data.
 A new column 'delivery_volume_litre' is added to convert barrel unit to litre unit.
-Another new collumn 'fuel_delivery_costTRY_per_waterLitre' presents the fuel cost per liter of water (TRY/Litre).
+Another new column 'fuel_delivery_costTRY_per_waterLitre' presents the fuel cost per liter of water (TRY/Litre).
 Table 'fuel_water_cost' was cleaned again with na.omit() to remove NA value.
 
 ```r
