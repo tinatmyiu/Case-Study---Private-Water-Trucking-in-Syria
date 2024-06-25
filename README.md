@@ -128,7 +128,7 @@ ggplot(fuel_water_cost, aes(x=delivery_distance, y=fuel_delivery_costTRY_per_wat
 
 ```
 
-A Pearson correlation test is performed to obtain the p-value. p-value = 0.6764. Correlation coefficient = -0.04707941
+A Pearson correlation test is performed to obtain the p-value and correlation coefficient. p-value = 0.6764. Correlation coefficient = -0.04707941
 
 ![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/pearson%20correation.PNG)
 
@@ -139,7 +139,7 @@ fuel_water_cost %>%
 ```
 
 
-Another scatter plot 'Fuel cost for delivery of water according to delivery distance with all types of KI' is to see the correction of the fuel cost of water delivery and delivery distance for all types of KI.
+Another scatter plot 'Fuel cost for delivery of water according to delivery distance with all types of KI is to see the correction of the fuel cost of water delivery and delivery distance for all types of KI.
 
 ![paste to excel](https://github.com/tinatmyiu/casestudy/blob/5de2e211dd8aaac3ec7e72be0d30f939a1b09996/Fuel%20cost%20for%20delivery%20of%20water%20according%20to%20delivery%20distance%20with%20all%20types%20of%20KI.png)
 
