@@ -30,7 +30,7 @@ If they have different units within the same variable, a conversion of unit shou
 
 Add a column 'cal_fuel_cost_litre' for calculation of fuel_cost_litre. Add another column 'cal_verify' to return TRUE if the result of cal_fuel_cost_litre and fuel_cost_litre match.
 
-A summary of 'check_cal_fuel_cost_litre' shows which row has unmatched values of cal_fuel_cost_litre and fuel_cost_litre. The calcuation of fuel_cost_litre is verified t as accurate.
+A summary of 'check_cal_fuel_cost_litre' shows which row has unmatched values of cal_fuel_cost_litre and fuel_cost_litre. The calcuation of fuel_cost_litre is verified as accurate.
 
 ![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/check_cal_fuel_cost_litre.png)
 
@@ -54,7 +54,7 @@ setwd("C:/Users/danny/Desktop/Tina/Syria")
 main_data <- read_excel("REACH_SYR_Dataset_Water-Trucking_Mar24.xlsx", "Main Data")
 
 #Data cleaning
-#remove duplicates and extra spaces in a data point
+#remove duplicates and extra spaces
 main_data <- distinct(main_data)
 main_data <- str_rm_whitespace_df(main_data)
 
@@ -84,7 +84,7 @@ summarise(check_cal_fuel_cost_litre)
 ```
 
 ## Data wrangling
-We will create 2 tables for examination of the fuel cost for delivering waterin water trucking activies
+We will create 2 tables for examination of the fuel cost for delivering water in private water trucking activies
 
 The 1st table 'fuel_water_cost' will contain ki_type of 'private_trucker' or 'private_owner'. 4 variables needed for calculation of fuel cost (TRY) per a litre of water are extracted from the cleaned data.
 A new column 'fuel_delivery_per_trip_TRY' is added add a result of fuel cost per trip (TRY).
