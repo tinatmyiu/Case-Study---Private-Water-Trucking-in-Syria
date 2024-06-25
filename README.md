@@ -26,6 +26,11 @@ If they have different units within the same variable, a conversion of unit shou
 ![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/fuel_unit.PNG)
 ![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/truck_volume_unit.PNG)
 
+5. Check if the calculation of fuel_cost_litre
+
+Add a column 'cal_fuel_cost_litre' for calculation of fuel_cost_litre. Add another column 'cal_verify' to return TRUE if the result of cal_fuel_cost_litre and fuel_cost_litre match.
+
+An summary table 'cal_verify_false' shows which row has unmatched values of cal_fuel_cost_litre and fuel_cost_litre.
 
 ```r
 # install.packages
