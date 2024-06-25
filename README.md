@@ -30,7 +30,7 @@ If they have different units within the same variable, a conversion of unit shou
 
 Add a column 'cal_fuel_cost_litre' for calculation of fuel_cost_litre. Add another column 'cal_verify' to return TRUE if the result of cal_fuel_cost_litre and fuel_cost_litre match.
 
-An summary of 'check_cal_fuel_cost_litre' shows which row has unmatched values of cal_fuel_cost_litre and fuel_cost_litre. The calcuation of fuel_cost_litre is verified t as accurate.
+A summary of 'check_cal_fuel_cost_litre' shows which row has unmatched values of cal_fuel_cost_litre and fuel_cost_litre. The calcuation of fuel_cost_litre is verified t as accurate.
 
 ![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/check_cal_fuel_cost_litre.png)
 
