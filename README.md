@@ -18,7 +18,7 @@ Using str_rm_whitespace_df() in R.
 
 Without currency and fuel unit, the cost is not measurable and comparable with each other so the data with currency and fuel unit of NA will be removed.
 
-4. Check if the units for currency, fuel_unit and delivery distance are the same for all uuid.
+4. Check if the units for currency, fuel_unit and delivery distance are the same for all uuid
 
 If they have different units within the same variable, a conversion of unit should be applied to unify the units. The results show that the units are unified.
 
