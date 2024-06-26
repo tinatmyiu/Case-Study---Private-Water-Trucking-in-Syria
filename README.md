@@ -26,12 +26,6 @@ If they have different units within the same variable, a conversion of unit shou
 ![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/fuel_unit.PNG)
 ![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/truck_volume_unit.PNG)
 
-
-
-A summary of 'check_cal_fuel_cost_litre' shows if there are unmatched values of cal_fuel_cost_litre and fuel_cost_litre. The calcuation of fuel_cost_litre is verified as accurate.
-
-![paste to excel](https://github.com/tinatmyiu/casestudy/blob/main/check_cal_fuel_cost_litre.png)
-
 ```r
 # install.packages
 install.packages("dplyr")
